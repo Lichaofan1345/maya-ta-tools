@@ -1,0 +1,45 @@
+{
+    "check_items": [
+        {
+            "name": "命名规范",
+            "enabled": true,
+            "pattern": "^[a-zA-Z_][a-zA-Z0-9_]*$",
+            "description": "资产名称只能包含字母、数字和下划线，且不能以数字开头",
+            "target_type": "transform",
+            "auto_fix": true,
+            "fix_func": "fix_naming"
+        },
+        {
+            "name": "冻结变换",
+            "enabled": true,
+            "description": "检查模型是否已冻结变换（位移/旋转/缩放归零）",
+            "target_type": "transform",
+            "auto_fix": true,
+            "fix_func": "fix_freezetransform"
+        },
+        {
+            "name": "空组检查",
+            "enabled": true,
+            "description": "检查场景中是否存在没有任何子物体的空组节点",
+            "target_type": "transform",
+            "auto_fix": true,
+            "fix_func": "fix_emptygroup"
+        },
+        {
+            "name": "历史记录",
+            "enabled": true,
+            "description": "检查物体是否残留构造历史节点",
+            "target_type": "transform",
+            "auto_fix": true,
+            "fix_func": "fix_history"
+        },
+        {
+            "name": "材质缺失",
+            "enabled": true,
+            "description": "检查网格物体是否缺少材质球",
+            "target_type": "mesh",
+            "auto_fix": true,
+            "fix_func": "fix_material"
+        }
+    ]
+}
