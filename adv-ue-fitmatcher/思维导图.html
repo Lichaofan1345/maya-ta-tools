@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<title>ADV × UE 对接工具 · 代码思维导图</title>
+<style>
+ body{margin:0;background:#f6f8fa;color:#1f2a33;font-family:"Microsoft YaHei","PingFang SC",sans-serif}
+ header{padding:18px 26px 6px}
+ h1{margin:0 0 4px;font-size:22px;color:#167F98}
+ p{margin:2px 0;color:#5A6B70;font-size:14px;line-height:1.7}
+ .wrap{overflow:auto;padding:10px 20px 30px}
+ svg{background:#fff;border:1px solid #dde3e8;border-radius:10px;display:block}
+ .legend span{display:inline-block;margin-right:14px;font-size:13px}
+ .legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+ @media print{body{background:#fff}.wrap{overflow:visible}}
+</style></head><body>
+<header>
+ <h1>ADV × UE 对接工具 v3.0 · 代码思维导图</h1>
+ <p>从左往右读：先看有哪几块，再顺着分支看每块里的函数。对应文字讲解见同目录「代码思路.md」。</p>
+ <p class="legend">
+  <span><i style="background:#2E8B57"></i>Build 前</span>
+  <span><i style="background:#C77D12"></i>Build 后</span>
+  <span><i style="background:#B23B3B"></i>安全网</span>
+  <span><i style="background:#7A4FBF"></i>可改的参数</span>
+  <span><i style="background:#8A6D1F"></i>踩坑</span></p>
+</header>
+<div class="wrap">
+<svg xmlns="http://www.w3.org/2000/svg" width="1585" height="1444" viewBox="0 0 1585 1444">
+<path d="M235.4 705.0 C258.4 705.0, 258.4 75.0, 281.4 75.0" fill="none" stroke="#6B7A8F" stroke-width="1.6" opacity=".55"/>
+<path d="M381.4 75.0 C460.7 75.0, 460.7 41.0, 540.0 41.0" fill="none" stroke="#6B7A8F" stroke-width="1.6" opacity=".55"/>
+<path d="M381.4 75.0 C460.7 75.0, 460.7 75.0, 540.0 75.0" fill="none" stroke="#6B7A8F" stroke-width="1.6" opacity=".55"/>
+<path d="M381.4 75.0 C460.7 75.0, 460.7 109.0, 540.0 109.0" fill="none" stroke="#6B7A8F" stroke-width="1.6" opacity=".55"/>
+<path d="M235.4 705.0 C258.4 705.0, 258.4 233.5, 281.4 233.5" fill="none" stroke="#2E8B57" stroke-width="1.6" opacity=".55"/>
+<path d="M439.1 233.5 C489.6 233.5, 489.6 157.0, 540.0 157.0" fill="none" stroke="#2E8B57" stroke-width="1.6" opacity=".55"/>
+<path d="M439.1 233.5 C489.6 233.5, 489.6 225.0, 540.0 225.0" fill="none" stroke="#2E8B57" stroke-width="1.6" opacity=".55"/>
+<path d="M867.4 225.0 C944.1 225.0, 944.1 191.0, 1020.9 191.0" fill="none" stroke="#2E8B57" stroke-width="1.6" opacity=".55"/>
+<path d="M867.4 225.0 C944.1 225.0, 944.1 225.0, 1020.9 225.0" fill="none" stroke="#2E8B57" stroke-width="1.6" opacity=".55"/>
+<path d="M867.4 225.0 C944.1 225.0, 944.1 259.0, 1020.9 259.0" fill="none" stroke="#2E8B57" stroke-width="1.6" opacity=".55"/>
+<path d="M439.1 233.5 C489.6 233.5, 489.6 310.0, 540.0 310.0" fill="none" stroke="#2E8B57" stroke-width="1.6" opacity=".55"/>
+<path d="M762.6 310.0 C891.8 310.0, 891.8 293.0, 1020.9 293.0" fill="none" stroke="#2E8B57" stroke-width="1.6" opacity=".55"/>
+<path d="M762.6 310.0 C891.8 310.0, 891.8 327.0, 1020.9 327.0" fill="none" stroke="#2E8B57" stroke-width="1.6" opacity=".55"/>
+<path d="M235.4 705.0 C258.4 705.0, 258.4 638.5, 281.4 638.5" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M494.0 638.5 C517.0 638.5, 517.0 409.0, 540.0 409.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M612.0 409.0 C816.4 409.0, 816.4 375.0, 1020.9 375.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M612.0 409.0 C816.4 409.0, 816.4 409.0, 1020.9 409.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M612.0 409.0 C816.4 409.0, 816.4 443.0, 1020.9 443.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M494.0 638.5 C517.0 638.5, 517.0 511.0, 540.0 511.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M801.3 511.0 C911.1 511.0, 911.1 477.0, 1020.9 477.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M801.3 511.0 C911.1 511.0, 911.1 511.0, 1020.9 511.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M801.3 511.0 C911.1 511.0, 911.1 545.0, 1020.9 545.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M494.0 638.5 C517.0 638.5, 517.0 630.0, 540.0 630.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M768.8 630.0 C894.8 630.0, 894.8 579.0, 1020.9 579.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M768.8 630.0 C894.8 630.0, 894.8 613.0, 1020.9 613.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M768.8 630.0 C894.8 630.0, 894.8 647.0, 1020.9 647.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M768.8 630.0 C894.8 630.0, 894.8 681.0, 1020.9 681.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M494.0 638.5 C517.0 638.5, 517.0 766.0, 540.0 766.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M845.0 766.0 C932.9 766.0, 932.9 715.0, 1020.9 715.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M845.0 766.0 C932.9 766.0, 932.9 749.0, 1020.9 749.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M845.0 766.0 C932.9 766.0, 932.9 783.0, 1020.9 783.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M845.0 766.0 C932.9 766.0, 932.9 817.0, 1020.9 817.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M494.0 638.5 C517.0 638.5, 517.0 868.0, 540.0 868.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M688.7 868.0 C854.8 868.0, 854.8 851.0, 1020.9 851.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M688.7 868.0 C854.8 868.0, 854.8 885.0, 1020.9 885.0" fill="none" stroke="#C77D12" stroke-width="1.6" opacity=".55"/>
+<path d="M235.4 705.0 C258.4 705.0, 258.4 1001.0, 281.4 1001.0" fill="none" stroke="#B23B3B" stroke-width="1.6" opacity=".55"/>
+<path d="M353.4 1001.0 C446.7 1001.0, 446.7 933.0, 540.0 933.0" fill="none" stroke="#B23B3B" stroke-width="1.6" opacity=".55"/>
+<path d="M353.4 1001.0 C446.7 1001.0, 446.7 967.0, 540.0 967.0" fill="none" stroke="#B23B3B" stroke-width="1.6" opacity=".55"/>
+<path d="M353.4 1001.0 C446.7 1001.0, 446.7 1001.0, 540.0 1001.0" fill="none" stroke="#B23B3B" stroke-width="1.6" opacity=".55"/>
+<path d="M353.4 1001.0 C446.7 1001.0, 446.7 1035.0, 540.0 1035.0" fill="none" stroke="#B23B3B" stroke-width="1.6" opacity=".55"/>
+<path d="M353.4 1001.0 C446.7 1001.0, 446.7 1069.0, 540.0 1069.0" fill="none" stroke="#B23B3B" stroke-width="1.6" opacity=".55"/>
+<path d="M235.4 705.0 C258.4 705.0, 258.4 1168.0, 281.4 1168.0" fill="none" stroke="#7A4FBF" stroke-width="1.6" opacity=".55"/>
+<path d="M395.4 1168.0 C467.7 1168.0, 467.7 1117.0, 540.0 1117.0" fill="none" stroke="#7A4FBF" stroke-width="1.6" opacity=".55"/>
+<path d="M395.4 1168.0 C467.7 1168.0, 467.7 1151.0, 540.0 1151.0" fill="none" stroke="#7A4FBF" stroke-width="1.6" opacity=".55"/>
+<path d="M395.4 1168.0 C467.7 1168.0, 467.7 1185.0, 540.0 1185.0" fill="none" stroke="#7A4FBF" stroke-width="1.6" opacity=".55"/>
+<path d="M395.4 1168.0 C467.7 1168.0, 467.7 1219.0, 540.0 1219.0" fill="none" stroke="#7A4FBF" stroke-width="1.6" opacity=".55"/>
+<path d="M235.4 705.0 C258.4 705.0, 258.4 1335.0, 281.4 1335.0" fill="none" stroke="#8A6D1F" stroke-width="1.6" opacity=".55"/>
+<path d="M367.4 1335.0 C453.7 1335.0, 453.7 1267.0, 540.0 1267.0" fill="none" stroke="#8A6D1F" stroke-width="1.6" opacity=".55"/>
+<path d="M367.4 1335.0 C453.7 1335.0, 453.7 1301.0, 540.0 1301.0" fill="none" stroke="#8A6D1F" stroke-width="1.6" opacity=".55"/>
+<path d="M367.4 1335.0 C453.7 1335.0, 453.7 1335.0, 540.0 1335.0" fill="none" stroke="#8A6D1F" stroke-width="1.6" opacity=".55"/>
+<path d="M367.4 1335.0 C453.7 1335.0, 453.7 1369.0, 540.0 1369.0" fill="none" stroke="#8A6D1F" stroke-width="1.6" opacity=".55"/>
+<path d="M367.4 1335.0 C453.7 1335.0, 453.7 1403.0, 540.0 1403.0" fill="none" stroke="#8A6D1F" stroke-width="1.6" opacity=".55"/>
+<rect x="24.0" y="688.0" width="211.4" height="34" rx="7" fill="#167F98" stroke="#167F98" stroke-width="1.4"/>
+<text x="35.0" y="706.0" font-size="14" font-weight="700" fill="#fff" dominant-baseline="middle">ADV × UE 对接工具 v3.0</text>
+<rect x="281.4" y="62.0" width="100.0" height="26" rx="7" fill="#6B7A8F" stroke="#6B7A8F" stroke-width="1.4"/>
+<text x="292.4" y="76.0" font-size="14" font-weight="700" fill="#fff" dominant-baseline="middle">入口与文件</text>
+<rect x="540.0" y="28.0" width="344.2" height="26" rx="7" fill="#fff" stroke="#6B7A8F" stroke-width="1.4"/>
+<text x="551.0" y="42.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">launch_deform_link.py：拖进视口的启动器</text>
+<rect x="540.0" y="62.0" width="395.1" height="26" rx="7" fill="#fff" stroke="#6B7A8F" stroke-width="1.4"/>
+<text x="551.0" y="76.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">adv_ue_deform_link.py：主工具（窗口+全部逻辑）</text>
+<rect x="540.0" y="96.0" width="434.9" height="26" rx="7" fill="#fff" stroke="#6B7A8F" stroke-width="1.4"/>
+<text x="551.0" y="110.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">插 Spine4：已并入主工具，自包含</text>
+<rect x="281.4" y="220.5" width="157.7" height="26" rx="7" fill="#2E8B57" stroke="#2E8B57" stroke-width="1.4"/>
+<text x="292.4" y="234.5" font-size="14" font-weight="700" fill="#fff" dominant-baseline="middle">① Build 前：补骨</text>
+<rect x="540.0" y="144.0" width="268.6" height="26" rx="7" fill="#fff" stroke="#2E8B57" stroke-width="1.4"/>
+<text x="551.0" y="158.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">preview_fit：只读，算出要补什么</text>
+<rect x="540.0" y="212.0" width="327.4" height="26" rx="7" fill="#fff" stroke="#2E8B57" stroke-width="1.4"/>
+<text x="551.0" y="226.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">_fit_plan：逐项判断 创建 / 修改 / 跳过</text>
+<rect x="1020.9" y="178.0" width="302.2" height="26" rx="7" fill="#fff" stroke="#2E8B57" stroke-width="1.4"/>
+<text x="1031.9" y="192.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">Spine4：插在 Spine3 与 Chest 之间</text>
+<rect x="1020.9" y="212.0" width="508.2" height="26" rx="7" fill="#fff" stroke="#2E8B57" stroke-width="1.4"/>
+<text x="1031.9" y="226.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">Neck 中段：inbetweenJoints 定为 1 → NeckPart1 对 neck_02</text>
+<rect x="1020.9" y="246.0" width="331.3" height="26" rx="7" fill="#fff" stroke="#2E8B57" stroke-width="1.4"/>
+<text x="1031.9" y="260.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">四肢扭转：twistJoints=2（Knee 之前缺）</text>
+<rect x="540.0" y="297.0" width="222.6" height="26" rx="7" fill="#fff" stroke="#2E8B57" stroke-width="1.4"/>
+<text x="551.0" y="311.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">apply_fit：一个撤销块执行</text>
+<rect x="1020.9" y="280.0" width="304.4" height="26" rx="7" fill="#fff" stroke="#2E8B57" stroke-width="1.4"/>
+<text x="1031.9" y="294.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">借用 _insert_spine4，再按根重扫索引</text>
+<rect x="1020.9" y="314.0" width="234.4" height="26" rx="7" fill="#fff" stroke="#2E8B57" stroke-width="1.4"/>
+<text x="1031.9" y="328.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">只改 FitSkeleton，不动 UE</text>
+<rect x="281.4" y="625.5" width="212.6" height="26" rx="7" fill="#C77D12" stroke="#C77D12" stroke-width="1.4"/>
+<text x="292.4" y="639.5" font-size="14" font-weight="700" fill="#fff" dominant-baseline="middle">② Build 后：匹配 + 约束</text>
+<rect x="540.0" y="396.0" width="72.0" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="551.0" y="410.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">找对象</text>
+<rect x="1020.9" y="362.0" width="405.8" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="1031.9" y="376.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">auto_detect / resolve_selection：自动填两个框</text>
+<rect x="1020.9" y="396.0" width="353.7" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="1031.9" y="410.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">_find_adv 要有 DeformationSystem+Main</text>
+<rect x="1020.9" y="430.0" width="274.2" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="1031.9" y="444.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">_find_ue 要是 joint 且叫 root</text>
+<rect x="540.0" y="498.0" width="261.3" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="551.0" y="512.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">对名字：deform_mapping 79 对</text>
+<rect x="1020.9" y="464.0" width="353.1" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="1031.9" y="478.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">62 主骨（含 38 手指）+ 16 扭转 + neck_02</text>
+<rect x="1020.9" y="498.0" width="263.5" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="1031.9" y="512.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">Elbow/Knee 扭转反序，肩/髋正序</text>
+<rect x="1020.9" y="532.0" width="247.3" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="1031.9" y="546.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">Spine5_M 或 Chest_M 二选一</text>
+<rect x="540.0" y="617.0" width="228.8" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="551.0" y="631.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">_plan：出一份计划，不改场景</text>
+<rect x="1020.9" y="566.0" width="302.2" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="1031.9" y="580.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">缺骨不阻断：skipped / unavailable</text>
+<rect x="1020.9" y="600.0" width="237.8" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="1031.9" y="614.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">主骨匹配 &lt;40% 才判定选错骨架</text>
+<rect x="1020.9" y="634.0" width="252.9" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="1031.9" y="648.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">映射表外的骨 → 阻断（撞名残留）</text>
+<rect x="1020.9" y="668.0" width="333.5" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="1031.9" y="682.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">外来约束 / 动画输入 / 锁定 / 蒙皮 → 阻断</text>
+<rect x="540.0" y="753.0" width="305.0" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="551.0" y="767.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">匹配：_match_targets → _do_match</text>
+<rect x="1020.9" y="702.0" width="190.7" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="1031.9" y="716.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">位置 = ADV 变形骨位置</text>
+<rect x="1020.9" y="736.0" width="357.0" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="1031.9" y="750.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">朝向 = 偏移 × ADV 朝向（ORIENT_OFFSETS）</text>
+<rect x="1020.9" y="770.0" width="405.8" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="1031.9" y="784.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">_write_world：rotate 归零，朝向进 jointOrient</text>
+<rect x="1020.9" y="804.0" width="198.0" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="1031.9" y="818.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">没映射的骨保持原世界位置</text>
+<rect x="540.0" y="855.0" width="148.7" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="551.0" y="869.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">建约束：_create</text>
+<rect x="1020.9" y="838.0" width="375.5" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="1031.9" y="852.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">point + orient + scale，Maintain Offset</text>
+<rect x="1020.9" y="872.0" width="310.0" height="26" rx="7" fill="#fff" stroke="#C77D12" stroke-width="1.4"/>
+<text x="1031.9" y="886.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">命名 UELink_&lt;骨名&gt;_pt / _or / _sc</text>
+<rect x="281.4" y="988.0" width="72.0" height="26" rx="7" fill="#B23B3B" stroke="#B23B3B" stroke-width="1.4"/>
+<text x="292.4" y="1002.0" font-size="14" font-weight="700" fill="#fff" dominant-baseline="middle">安全网</text>
+<rect x="540.0" y="920.0" width="241.7" height="26" rx="7" fill="#fff" stroke="#B23B3B" stroke-width="1.4"/>
+<text x="551.0" y="934.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">preview 纯只读，不弹窗不写盘</text>
+<rect x="540.0" y="954.0" width="334.6" height="26" rx="7" fill="#fff" stroke="#B23B3B" stroke-width="1.4"/>
+<text x="551.0" y="968.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">确认框默认「取消」，缺省 confirm 也是拒绝</text>
+<rect x="540.0" y="988.0" width="273.6" height="26" rx="7" fill="#fff" stroke="#B23B3B" stroke-width="1.4"/>
+<text x="551.0" y="1002.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">整套一个撤销块 → Ctrl+Z 一次全回</text>
+<rect x="540.0" y="1022.0" width="326.8" height="26" rx="7" fill="#fff" stroke="#B23B3B" stroke-width="1.4"/>
+<text x="551.0" y="1036.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">写完复查：位置/朝向、ADV 没被动、约束到位</text>
+<rect x="540.0" y="1056.0" width="212.0" height="26" rx="7" fill="#fff" stroke="#B23B3B" stroke-width="1.4"/>
+<text x="551.0" y="1070.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">失败自动撤销，只撤自己的块</text>
+<rect x="281.4" y="1155.0" width="114.0" height="26" rx="7" fill="#7A4FBF" stroke="#7A4FBF" stroke-width="1.4"/>
+<text x="292.4" y="1169.0" font-size="14" font-weight="700" fill="#fff" dominant-baseline="middle">可以改的地方</text>
+<rect x="540.0" y="1104.0" width="382.2" height="26" rx="7" fill="#fff" stroke="#7A4FBF" stroke-width="1.4"/>
+<text x="551.0" y="1118.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">ORIENT_OFFSETS：各区域朝向规则，None=只搬位置</text>
+<rect x="540.0" y="1138.0" width="275.3" height="26" rx="7" fill="#fff" stroke="#7A4FBF" stroke-width="1.4"/>
+<text x="551.0" y="1152.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">FIT_NECK_INBETWEEN：颈中段几根</text>
+<rect x="540.0" y="1172.0" width="262.4" height="26" rx="7" fill="#fff" stroke="#7A4FBF" stroke-width="1.4"/>
+<text x="551.0" y="1186.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">FIT_TWIST_COUNT：四肢扭转几节</text>
+<rect x="540.0" y="1206.0" width="294.3" height="26" rx="7" fill="#fff" stroke="#7A4FBF" stroke-width="1.4"/>
+<text x="551.0" y="1220.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">MAIN_COVERAGE_MIN：选错骨架的阈值</text>
+<rect x="281.4" y="1322.0" width="86.0" height="26" rx="7" fill="#8A6D1F" stroke="#8A6D1F" stroke-width="1.4"/>
+<text x="292.4" y="1336.0" font-size="14" font-weight="700" fill="#fff" dominant-baseline="middle">踩过的坑</text>
+<rect x="540.0" y="1254.0" width="240.0" height="26" rx="7" fill="#fff" stroke="#8A6D1F" stroke-width="1.4"/>
+<text x="551.0" y="1268.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">重挂父级后，缓存的长路径全失效</text>
+<rect x="540.0" y="1288.0" width="341.4" height="26" rx="7" fill="#fff" stroke="#8A6D1F" stroke-width="1.4"/>
+<text x="551.0" y="1302.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">_tree 把约束/曲线形状收进来 → xform 报错</text>
+<rect x="540.0" y="1322.0" width="319.5" height="26" rx="7" fill="#fff" stroke="#8A6D1F" stroke-width="1.4"/>
+<text x="551.0" y="1336.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">clavicle_l1 撞名骨：只看「配上的」会漏</text>
+<rect x="540.0" y="1356.0" width="198.0" height="26" rx="7" fill="#fff" stroke="#8A6D1F" stroke-width="1.4"/>
+<text x="551.0" y="1370.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">两个旋转矩阵不能直接平均</text>
+<rect x="540.0" y="1390.0" width="261.8" height="26" rx="7" fill="#fff" stroke="#8A6D1F" stroke-width="1.4"/>
+<text x="551.0" y="1404.0" font-size="14" font-weight="400" fill="#1f2a33" dominant-baseline="middle">测驱动要转 FK 控制器，不是变形骨</text>
+</svg></div></body></html>

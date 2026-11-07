@@ -1,0 +1,28 @@
+{
+  "package": "ADV_UE_FitMatcher_v3",
+  "version": "3.1.0",
+  "updated": "2026-10-19 20:38",
+  "scope": "Two-step: pre-Build Fit top-up (Spine4/Neck inbetween/twist) + post-Build UE position+orientation match to ADV deform joints + point/orient/scale constraints. Self-contained (Spine4 insertion merged in).",
+  "files": {
+    "adv_ue_deform_link.py": {
+      "sha256": "7b6019890fa79dfcf2544d23567ef59565a2ae9601c54760d381ee2ee0d5e003",
+      "bytes": 74388
+    },
+    "launch_deform_link.py": {
+      "sha256": "77c4ef551d217a81c1e8fb20cf5ea6a0cea8ca539cfc70e686fcddbbe077ad55",
+      "bytes": 2187
+    },
+    "代码思路.md": {
+      "sha256": "7e529e9bd828a8af563e6d72336558065e590ce087248365bd1ed1a53a3bc62b",
+      "bytes": 14691
+    },
+    "先看这里.txt": {
+      "sha256": "d3373ada752898115cfd03fe8d7edd8487f1a438043c4188fcdacbdef11739bd",
+      "bytes": 6104
+    },
+    "思维导图.html": {
+      "sha256": "966d2bf9beb893f80b8bbe7304d5e95deeb05a3f340be4872a4a942942762179",
+      "bytes": 21758
+    }
+  }
+}
